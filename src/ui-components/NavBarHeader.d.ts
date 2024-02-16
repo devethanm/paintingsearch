@@ -5,9 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { LogoWithTextProps } from "./LogoWithText";
-import { FlexProps, ImageProps, TextProps } from "@aws-amplify/ui-react";
-import { MyIconProps } from "./MyIcon";
+import { FlexProps, IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -21,15 +19,24 @@ export declare type Variant = {
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type NavBarHeaderOverridesProps = {
     NavBarHeader?: PrimitiveOverrideProps<FlexProps>;
-    LogoWithText?: LogoWithTextProps;
+    "logo-87"?: PrimitiveOverrideProps<ViewProps>;
+    Vector38604958?: PrimitiveOverrideProps<IconProps>;
+    Vector38604959?: PrimitiveOverrideProps<IconProps>;
+    Vector38604960?: PrimitiveOverrideProps<IconProps>;
+    Vector38604961?: PrimitiveOverrideProps<IconProps>;
+    Vector38604962?: PrimitiveOverrideProps<IconProps>;
+    Vector38604963?: PrimitiveOverrideProps<IconProps>;
+    Vector38604964?: PrimitiveOverrideProps<IconProps>;
+    Vector38604965?: PrimitiveOverrideProps<IconProps>;
+    Vector38604966?: PrimitiveOverrideProps<IconProps>;
+    Vector38604967?: PrimitiveOverrideProps<IconProps>;
+    Vector38604968?: PrimitiveOverrideProps<IconProps>;
+    Vector38604969?: PrimitiveOverrideProps<IconProps>;
     "Frame 32129767076"?: PrimitiveOverrideProps<FlexProps>;
-    Dashboard?: PrimitiveOverrideProps<TextProps>;
-    Jobs?: PrimitiveOverrideProps<TextProps>;
-    Applicants?: PrimitiveOverrideProps<TextProps>;
-    Company?: PrimitiveOverrideProps<TextProps>;
+    Home?: PrimitiveOverrideProps<TextProps>;
+    Search?: PrimitiveOverrideProps<TextProps>;
+    Account?: PrimitiveOverrideProps<TextProps>;
     "Frame 32129767081"?: PrimitiveOverrideProps<FlexProps>;
-    MyIcon?: MyIconProps;
-    image?: PrimitiveOverrideProps<ImageProps>;
 } & EscapeHatchProps;
 export declare type NavBarHeaderProps = React.PropsWithChildren<Partial<FlexProps> & {
     overrides?: NavBarHeaderOverridesProps | undefined | null;

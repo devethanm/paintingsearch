@@ -1,9 +1,9 @@
-import { getCurrentUser } from 'aws-amplify/auth';
+import { getCurrentUser, signOut } from 'aws-amplify/auth';
 
 import { useState, useEffect } from 'react';
 
 import {
-    NavBarHeader
+    NavBarHeader, MarketingFooter
 } from '../ui-components';
    
 export default function() {
@@ -24,20 +24,39 @@ export default function() {
         getUserData();
     }, []); // The empty array as the second argument ensures this effect only runs once
 
+    async function handleSignOut() {
+        try {
+            await signOut();
+        } catch (error) {
+            console.log('error signing out: ', error);
+        }
+    }
+
     return(
-        <main className="flex min-h-screen flex-col items-center justify-between bg-black text-white">
+        <main className="flex min-h-screen flex-col items-center justify-between bg-sitemain text-white">
             <header>
-                <NavBarHeader />
+                <NavBarHeader 
+                    overrides={{
+                        NavBarHeader: {backgroundColor: "#F2F2F2"}
+                    }}
+                />
                 <h2>Signed in as {username}</h2>
+                <button className="bg-slate-100 text-black" onClick={handleSignOut}>Sign Out</button>
             </header>
+
             <div className="z-10 max-w-5xl w-full flex items-center justify-center lg:flex ">
         
-                <h1 className="text-center text-white">Hello World!</h1>
+                <h1 className="text-center text-white text-6xl">Painting Search Engine</h1>
     
             </div>
-                <footer>
-                    <h2>Here is a footer</h2>
-                </footer>
+
+            <footer>
+                <MarketingFooter 
+                    overrides={{
+                        MarketingFooter: {backgroundColor: "#F2F2F2"}
+                    }}
+                />
+            </footer>
       </main>
     )
 }

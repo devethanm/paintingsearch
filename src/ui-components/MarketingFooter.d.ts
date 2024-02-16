@@ -5,7 +5,7 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ButtonProps, DividerProps, FlexProps, TextFieldProps, TextProps } from "@aws-amplify/ui-react";
+import { DividerProps, FlexProps, TextProps } from "@aws-amplify/ui-react";
 import { LogoWithTextProps } from "./LogoWithText";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
@@ -20,32 +20,11 @@ export declare type Variant = {
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type MarketingFooterOverridesProps = {
     MarketingFooter?: PrimitiveOverrideProps<FlexProps>;
-    "Frame 313"?: PrimitiveOverrideProps<FlexProps>;
-    "Frame 434"?: PrimitiveOverrideProps<FlexProps>;
-    "Sign up for our newsletter"?: PrimitiveOverrideProps<TextProps>;
-    "No spam. We promise."?: PrimitiveOverrideProps<TextProps>;
-    "Frame 435"?: PrimitiveOverrideProps<FlexProps>;
-    TextField?: PrimitiveOverrideProps<TextFieldProps>;
-    Button?: PrimitiveOverrideProps<ButtonProps>;
     Divider39413816?: PrimitiveOverrideProps<DividerProps>;
-    "Frame 40529766988"?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 405"?: PrimitiveOverrideProps<FlexProps>;
     "Frame 403"?: PrimitiveOverrideProps<FlexProps>;
-    Products?: PrimitiveOverrideProps<TextProps>;
-    Libraries?: PrimitiveOverrideProps<TextProps>;
-    CLI?: PrimitiveOverrideProps<TextProps>;
-    Studio?: PrimitiveOverrideProps<TextProps>;
-    Hosting?: PrimitiveOverrideProps<TextProps>;
-    "Frame 404"?: PrimitiveOverrideProps<FlexProps>;
-    Resources?: PrimitiveOverrideProps<TextProps>;
-    Docs?: PrimitiveOverrideProps<TextProps>;
-    Learn?: PrimitiveOverrideProps<TextProps>;
-    Examples?: PrimitiveOverrideProps<TextProps>;
-    Changelog?: PrimitiveOverrideProps<TextProps>;
-    "Frame 40539413972"?: PrimitiveOverrideProps<FlexProps>;
-    Company?: PrimitiveOverrideProps<TextProps>;
-    "About us"?: PrimitiveOverrideProps<TextProps>;
-    Contact?: PrimitiveOverrideProps<TextProps>;
-    Blog?: PrimitiveOverrideProps<TextProps>;
+    "Thank you for using our app :)29766990"?: PrimitiveOverrideProps<TextProps>;
+    "Thank you for using our app :)38605280"?: PrimitiveOverrideProps<TextProps>;
     Divider39413869?: PrimitiveOverrideProps<DividerProps>;
     "Frame 433"?: PrimitiveOverrideProps<FlexProps>;
     LogoWithText?: LogoWithTextProps;
