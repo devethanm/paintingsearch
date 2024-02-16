@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // App Pages
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import Search from './pages/Search';
 
 // Google Authentication 
 import { withAuthenticator } from '@aws-amplify/ui-react';
@@ -19,6 +20,7 @@ function App() {
             <Routes>
                 <Route index element={<Home />} /> 
                 <Route path="/home/" element={<Home />} />
+                <Route path="/search/" element={<Search />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>

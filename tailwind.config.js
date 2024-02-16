@@ -3,6 +3,11 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      backgroundImage: {
+        'bg': "url('/public/bg.jpeg')",
+        'bg2': "url('/public/bgcopy.jpg')",
+      },
+
       colors: {
         'brandmain': '#123123',
         'brandlight': '#F2F2F2',
@@ -14,7 +19,7 @@ module.exports = {
 
         'accentmain': '#9B1B30',
         'accentlight': '#C89F1F3',
-        'accentdark': '##005F5B',
+        'accentdark': '#005F5B',
       },
     },
   },

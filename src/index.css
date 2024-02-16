@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.std-text{
+    @apply text-2xl font-extrabold text-white shadow-lg font-extrabold
+}
