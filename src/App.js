@@ -1,17 +1,30 @@
 import logo from './logo.svg';
 import '@aws-amplify/ui-react/styles.css';
+import { useState } from 'react'
 
+// React Router
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// App Pages
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+
+// Google Authentication 
 import { withAuthenticator } from '@aws-amplify/ui-react';
 
 function App() {
   return (
-
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-black">
-      <div className="z-10 max-w-5xl w-full flex items-center justify-center lg:flex">
-        <h1 className="text-center text-white">Hello World!</h1>
-      </div>
-    </main>
+    <div >
+        <BrowserRouter>
+            <Routes>
+                <Route index element={<Home />} /> 
+                <Route path="/home/" element={<Home />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </BrowserRouter>
+    </div>
   );
 }
 
+// Wrap entire app with authentication
 export default withAuthenticator(App);
