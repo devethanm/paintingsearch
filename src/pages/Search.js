@@ -2,11 +2,17 @@ import { getCurrentUser, signOut } from 'aws-amplify/auth';
 
 import { useState, useEffect } from 'react';
 
+// React Router
+import { BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom';
+
 import {
     NavBarHeader, MarketingFooter
 } from '../ui-components';
    
 export default function Search() {
+    // Navigate variable used to switch routes
+    const navigate = useNavigate()
+
     // Create a state to store the user's username
     const [username, setUsername] = useState('');
 
@@ -32,6 +38,10 @@ export default function Search() {
         }
     }
 
+    function handleHome() { navigate('/home') }
+    function handleSearch() { navigate('/search') }
+    function handleAccount() { navigate('/account') }
+
     return(
         <main className="flex min-h-screen flex-col items-center justify-between text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black ">
             <header>
@@ -39,9 +49,9 @@ export default function Search() {
                     className="shadow-lg"
                     overrides={{
                         NavBarHeader: {backgroundColor: "#2C3E50"},
-                        Search: {color: "#F2F2F2"},
-                        Home: {color: "#F2F2F2"},
-                        Account: {color: "#F2F2F2"},
+                        Search: {color: "#F2F2F2", onClick: handleSearch},
+                        Home: {color: "#F2F2F2", onClick: handleHome},
+                        Account: {color: "#F2F2F2", onClick: handleAccount},
                         Button: { onClick: handleSignOut },
                     }}
                 />

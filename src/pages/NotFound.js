@@ -1,8 +1,8 @@
-export default function() {
+export default function NotFound() {
 
     return(
         <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-black">
-            <div className="z-10 max-w-5xl w-full flex items-center justify-center lg:flex">
+            <div className="z-10 max-w-5xl w-full flex items-center justify-center lg:flex flex-col">
                 <header>
         
                 </header>
