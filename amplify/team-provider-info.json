@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-paintingsearch-dev-170559-authRole",
+      "UnauthRoleArn": "arn:aws:iam::341756626779:role/amplify-paintingsearch-dev-170559-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::341756626779:role/amplify-paintingsearch-dev-170559-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-paintingsearch-dev-170559-deployment",
+      "UnauthRoleName": "amplify-paintingsearch-dev-170559-unauthRole",
+      "StackName": "amplify-paintingsearch-dev-170559",
+      "StackId": "arn:aws:cloudformation:us-east-1:341756626779:stack/amplify-paintingsearch-dev-170559/2b3de4a0-cc5f-11ee-a96d-0eba175f01b5",
+      "AmplifyAppId": "d3izpuec0qdkf"
+    },
+    "categories": {
+      "auth": {
+        "paintingsearch": {}
+      }
+    }
+  }
+}
