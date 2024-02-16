@@ -14,14 +14,13 @@ export default function NavBarHeader(props) {
     <Flex
       gap="40px"
       direction="row"
-      width="1440px"
+      width="unset"
       height="unset"
       justifyContent="center"
       alignItems="center"
       position="relative"
       boxShadow="0px 2px 6px rgba(0.05098039284348488, 0.10196078568696976, 0.14901961386203766, 0.15000000596046448)"
       padding="20px 32px 20px 32px"
-      backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "NavBarHeader")}
       {...rest}
     >
@@ -366,13 +365,11 @@ export default function NavBarHeader(props) {
       <Flex
         gap="40px"
         direction="row"
-        width="unset"
+        width="576px"
         height="unset"
         justifyContent="flex-start"
         alignItems="center"
-        grow="1"
-        shrink="1"
-        basis="0"
+        shrink="0"
         position="relative"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Frame 32129767076")}
@@ -381,7 +378,7 @@ export default function NavBarHeader(props) {
           fontFamily="Inter"
           fontSize="16px"
           fontWeight="400"
-          color="rgba(92,102,112,1)"
+          color="rgba(255,255,255,1)"
           lineHeight="24px"
           textAlign="left"
           display="block"
@@ -402,7 +399,7 @@ export default function NavBarHeader(props) {
           fontFamily="Inter"
           fontSize="16px"
           fontWeight="400"
-          color="rgba(92,102,112,1)"
+          color="rgba(255,255,255,1)"
           lineHeight="24px"
           textAlign="left"
           display="block"
@@ -423,7 +420,7 @@ export default function NavBarHeader(props) {
           fontFamily="Inter"
           fontSize="16px"
           fontWeight="400"
-          color="rgba(92,102,112,1)"
+          color="rgba(255,255,255,1)"
           lineHeight="24px"
           textAlign="left"
           display="block"
@@ -444,13 +441,11 @@ export default function NavBarHeader(props) {
       <Flex
         gap="32px"
         direction="row"
-        width="unset"
+        width="576px"
         height="unset"
         justifyContent="flex-end"
         alignItems="center"
-        grow="1"
-        shrink="1"
-        basis="0"
+        shrink="0"
         position="relative"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Frame 32129767081")}
@@ -459,7 +454,7 @@ export default function NavBarHeader(props) {
           width="unset"
           height="unset"
           shrink="0"
-          backgroundColor="rgba(92,102,112,1)"
+          backgroundColor="rgba(149,4,4,1)"
           size="default"
           isDisabled={false}
           variation="primary"
