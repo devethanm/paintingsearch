@@ -2,20 +2,31 @@ import { getCurrentUser, signOut } from 'aws-amplify/auth';
 
 import { useState, useEffect } from 'react';
 
-// React Router
-import { BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom';
+// for unique key generation
+import { SHA256 } from 'crypto-js'
 
-import Navbar from '../custom-components/Navbar';
+// React Router
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+
+// Wikidata API Functions
+import { getPaintings } from '../lib/wikidata';
+import { parsePaintings } from '../lib/wikidata';
 
 import NavbarTail from '../custom-components/NavbarTail';
-
-import {
-    NavBarHeader, MarketingFooter
-} from '../ui-components';
+import Artwork from '../custom-components/Artwork';
    
 export default function Results() {
     // Navigate variable used to switch routes
     const navigate = useNavigate()
+
+    // useLocation hook from react-router-dom used to retrieve URL query parameter :)
+    const location = useLocation();
+
+    // paintings data useState!
+    const [paintings, setPaintings] = useState([]);
+
+    const searchParams = new URLSearchParams(location.search);
+    const searchTerm = searchParams.get('searchTerm');
 
     // Create a state to store the user's username
     const [username, setUsername] = useState('');
@@ -46,6 +57,25 @@ export default function Results() {
     function onSearchClick() { navigate('/search') }
     function onAboutClick() { navigate('/about') }
 
+    // Use effect to retrieve paintings and update the paintings variable!
+    useEffect( () => {
+        async function fetchData() {
+            try {
+                const data = await getPaintings(searchTerm);
+                const parsedData = parsePaintings(data);
+                setPaintings(parsedData);
+            } catch (error) {
+                console.error('Error fetching painting data:', error);
+            }
+        }
+
+        fetchData();
+    }, []); // Empty dependency array means the effect only runs once
+
+    const generateUniqueKey = (str) => {
+        return SHA256(str).toString();
+    };
+
     return(
         <main className="flex min-h-screen flex-col items-center text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black">
 
@@ -61,7 +91,23 @@ export default function Results() {
                 <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
             
                     <div id="main-content-1" className=" m-20 z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
+                        <h2 className='std-text'>{`" ${searchTerm} "`}</h2>
                         <h2 className='std-text'>Search Results:</h2>
+
+                        {paintings && paintings.results ? (
+                            // Render paintings if data is available
+                            paintings.results.map((e, index) => (
+                                <Artwork
+                                    key={index} // Use index as key, but better to have a unique identifier
+                                    image={e.image}
+                                    footer1={e.value}
+                                    footer2={e.label}
+                                />
+                            ))
+                        ) : (
+                            // Render loading state or placeholder if data is not available yet
+                            <p>Loading...</p>
+                        )}
 
                         <div className="absolute bottom-5">
                             <Link to="/search">

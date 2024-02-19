@@ -3,16 +3,10 @@ import { getCurrentUser, signOut } from 'aws-amplify/auth';
 import { useState, useEffect } from 'react';
 
 // React Router
-import { BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom';
-
-import Navbar from '../custom-components/Navbar';
+import { Link, useNavigate} from 'react-router-dom';
 
 import NavbarTail from '../custom-components/NavbarTail';
 
-import {
-    NavBarHeader, MarketingFooter
-} from '../ui-components';
-   
 export default function Search() {
     // Navigate variable used to switch routes
     const navigate = useNavigate()

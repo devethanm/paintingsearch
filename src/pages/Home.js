@@ -3,15 +3,9 @@ import { getCurrentUser, signOut } from 'aws-amplify/auth';
 import { useState, useEffect } from 'react';
 
 // React Router
-import { BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom';
-
-import Navbar from '../custom-components/Navbar';
+import { Link, useNavigate} from 'react-router-dom';
 
 import NavbarTail from '../custom-components/NavbarTail';
-
-import {
-    NavBarHeader, MarketingFooter
-} from '../ui-components';
    
 export default function Home() {
     // Navigate variable used to switch routes
@@ -63,6 +57,7 @@ export default function Home() {
                     <div id="main-content-1" className=" m-20 z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
                         <h1 className="text-center text-white lg:text-7xl md:text-6xl sm:text-4xl text-3xl font-extrabold shadow-xl border-2 border-dashed">🖌️ Painting Search 🎨</h1>
                         <h2 className='std-text'>An advanced painting search engine</h2>
+
                         <Link to="/search">
                             <button className=" text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Get Started</button>
                         </Link>
