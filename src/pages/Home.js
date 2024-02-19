@@ -42,16 +42,20 @@ export default function Home() {
         }
     }
 
-    function handleHome() { navigate('/home') }
-    function handleSearch() { navigate('/search') }
-    function handleAccount() { navigate('/account') }
+    function onHomeClick() { navigate('/home') }
+    function onSearchClick() { navigate('/search') }
+    function onAboutClick() { navigate('/account') }
 
     return(
         <main className="flex min-h-screen flex-col items-center text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black">
 
             <div className="flex flex-col items-center min-w-full xl:px-60">
 
-                <NavbarTail />
+                <NavbarTail 
+                    onHomeClick={onHomeClick}
+                    onSearchClick={onSearchClick}
+                    onAboutClick={onAboutClick}
+                />
                 <h2>Signed in as {username}</h2>
 
                 <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">

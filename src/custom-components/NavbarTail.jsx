@@ -5,17 +5,16 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 const navigation = [
 
 
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Home', href: '#', current: true },
+  { name: 'Search', href: '#', current: false },
+  { name: 'About', href: '#', current: false },
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function NavbarTail() {
+export default function NavbarTail({ onHomeClick, onSearchClick, onAboutClick }) {
   return (
     <Disclosure as="nav" className="flex-1 min-w-full hidden sm:block">
       {({ open }) => (
@@ -46,8 +45,18 @@ export default function NavbarTail() {
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
+                        onClick={() => {
+                          if (item.name === 'Home') {
+                            onHomeClick();
+                          }
+                          else if (item.name === 'Search') {
+                            onSearchClick();
+                          }
+                          else if (item.name === 'About') {
+                            onAboutClick();
+                          }
+                        }}
                         key={item.name}
-                        href={item.href}
                         className={classNames(
                           item.current ? ' bg-sitemain text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
@@ -69,8 +78,8 @@ export default function NavbarTail() {
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1579965342575-16428a7c8881?q=80&w=1962&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        className="h-8 w-8 rounded-full ring-2 shadow-xl ring-white "
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt="Profile Picture"
                       />
                     </Menu.Button>
@@ -85,6 +94,16 @@ export default function NavbarTail() {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                          >
+                            Account
+                          </a>
+                        )}
+                      </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
                           <a
