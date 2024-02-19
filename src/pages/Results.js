@@ -13,7 +13,7 @@ import {
     NavBarHeader, MarketingFooter
 } from '../ui-components';
    
-export default function Search() {
+export default function Results() {
     // Navigate variable used to switch routes
     const navigate = useNavigate()
 
@@ -61,27 +61,10 @@ export default function Search() {
                 <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
             
                     <div id="main-content-1" className=" m-20 z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
-                        <h2 className='std-text'>Enter a search term and click search!</h2>
-
-                        <div>
-                            <div className="relative mt-2 rounded-md shadow-sm">
-                                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
-                                </div>
-                                <input
-                                type="text"
-                                name="searchterm"
-                                id="searchBox"
-                                className="block w-full rounded-md border-0 py-1.5 pl-5 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                placeholder="Enter your Search Term"
-                                />
-                                <div className="absolute inset-y-0 right-0 flex items-center">
-                            </div>
-                        </div>
-
-                    </div>
-
+                        <h1 className="text-center text-white lg:text-7xl md:text-6xl sm:text-4xl text-3xl font-extrabold shadow-xl border-2 border-dashed">🖌️ Painting Search 🎨</h1>
+                        <h2 className='std-text'>An advanced painting search engine</h2>
                         <Link to="/search">
-                            <button className=" text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Search!</button>
+                            <button className=" text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Get Started</button>
                         </Link>
                     </div>
 

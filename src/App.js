@@ -6,9 +6,11 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // App Pages
-import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import Home from './pages/Home';
 import Search from './pages/Search';
+import About from './pages/About';
+import Results from './pages/Results';
 import Account from './pages/Account';
 
 // Google Authentication 
@@ -24,6 +26,9 @@ function App() {
                 <Route index element={<Home />} /> 
                 <Route path="/home/" element={<Home />} />
                 <Route path="/search/" element={<Search />} />
+                <Route path="/about/" element={<About />} />
+                <Route path="/about/" element={<Account />} />
+                <Route path="/results/" element={<Results />} />
                 <Route path="/account/" element={<Account />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>

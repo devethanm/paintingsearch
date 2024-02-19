@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react';
 // React Router
 import { BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom';
 
+import Navbar from '../custom-components/Navbar';
+
+import NavbarTail from '../custom-components/NavbarTail';
+
 import {
     NavBarHeader, MarketingFooter
 } from '../ui-components';
@@ -38,40 +42,39 @@ export default function Account() {
         }
     }
 
-    function handleHome() { navigate('/home') }
-    function handleSearch() { navigate('/search') }
-    function handleAccount() { navigate('/account') }
+    function onHomeClick() { navigate('/home') }
+    function onSearchClick() { navigate('/search') }
+    function onAboutClick() { navigate('/about') }
 
     return(
-        <main className="flex min-h-screen flex-col items-center justify-between text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black ">
-            <header>
-                <NavBarHeader 
-                    className="shadow-lg"
-                    overrides={{
-                        NavBarHeader: {backgroundColor: "#2C3E50"},
-                        Search: {color: "#F2F2F2", onClick: handleSearch},
-                        Home: {color: "#F2F2F2", onClick: handleHome},
-                        Account: {color: "#F2F2F2", onClick: handleAccount},
-                        Button: { onClick: handleSignOut },
-                    }}
+        <main className="flex min-h-screen flex-col items-center text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black">
+
+            <div className="flex flex-col items-center min-w-full xl:px-60">
+
+                <NavbarTail 
+                    onHomeClick={onHomeClick}
+                    onSearchClick={onSearchClick}
+                    onAboutClick={onAboutClick}
                 />
                 <h2>Signed in as {username}</h2>
-            </header>
 
-            <div className="z-10 max-w-5xl w-full flex items-center justify-center lg:flex flex-col gap-y-10">
-        
-                <h1 className="text-center text-white text-6xl font-extrabold shadow-xl">Here is the account management page</h1>
-                <button className=" text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Search</button>
-    
+                <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
+            
+                    <div id="main-content-1" className=" m-20 z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
+                        <h1 className="text-center text-white lg:text-7xl md:text-6xl sm:text-4xl text-3xl font-extrabold shadow-xl border-2 border-dashed">🖌️ Painting Search 🎨</h1>
+                        <h2 className='std-text'>An advanced painting search engine</h2>
+                        <Link to="/search">
+                            <button className=" text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Get Started</button>
+                        </Link>
+                    </div>
+
+                </div>
+
+                <footer className="hidden md:block">
+                </footer>
+
             </div>
 
-            <footer>
-                <MarketingFooter 
-                    overrides={{
-                        MarketingFooter: {backgroundColor: "#2C3E50"}
-                    }}
-                />
-            </footer>
-      </main>
+        </main>
     )
 }

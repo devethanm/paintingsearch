@@ -44,7 +44,7 @@ export default function Home() {
 
     function onHomeClick() { navigate('/home') }
     function onSearchClick() { navigate('/search') }
-    function onAboutClick() { navigate('/account') }
+    function onAboutClick() { navigate('/about') }
 
     return(
         <main className="flex min-h-screen flex-col items-center text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black">
@@ -75,6 +75,6 @@ export default function Home() {
 
             </div>
 
-      </main>
+        </main>
     )
 }
