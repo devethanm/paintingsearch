@@ -61,11 +61,13 @@ export default function Results() {
                 <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
             
                     <div id="main-content-1" className=" m-20 z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
-                        <h1 className="text-center text-white lg:text-7xl md:text-6xl sm:text-4xl text-3xl font-extrabold shadow-xl border-2 border-dashed">🖌️ Painting Search 🎨</h1>
-                        <h2 className='std-text'>An advanced painting search engine</h2>
-                        <Link to="/search">
-                            <button className=" text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Get Started</button>
-                        </Link>
+                        <h2 className='std-text'>Search Results:</h2>
+
+                        <div className="absolute bottom-5">
+                            <Link to="/search">
+                                <button className="text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Search Again</button>
+                            </Link>
+                        </div>
                     </div>
 
                 </div>

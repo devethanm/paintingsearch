@@ -34,6 +34,12 @@ export default function Search() {
         getUserData();
     }, []); // The empty array as the second argument ensures this effect only runs once
 
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleInputChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
     async function handleSignOut() {
         try {
             await signOut();
@@ -68,19 +74,21 @@ export default function Search() {
                                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
                                 </div>
                                 <input
-                                type="text"
-                                name="searchterm"
-                                id="searchBox"
-                                className="block w-full rounded-md border-0 py-1.5 pl-5 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                placeholder="Enter your Search Term"
-                                />
+                                    type="text"
+                                    name="searchterm"
+                                    id="searchBox"
+                                    className="block w-full rounded-md border-0 py-1.5 pl-5 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    placeholder="Enter your Search Term"
+                                    value={searchTerm}
+                                    onChange={handleInputChange}
+                                    />
                                 <div className="absolute inset-y-0 right-0 flex items-center">
                             </div>
                         </div>
 
                     </div>
 
-                        <Link to="/search">
+                        <Link to={`/results?searchTerm=${encodeURIComponent(searchTerm)}`}>
                             <button className=" text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Search!</button>
                         </Link>
                     </div>
