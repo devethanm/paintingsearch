@@ -77,7 +77,7 @@ export default function Results() {
     };
 
     return(
-        <main className="flex min-h-screen flex-col items-center text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black">
+        <main className="flex min-h-screen flex-col relative items-center text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black">
 
             <div className="flex flex-col items-center min-w-full xl:px-60">
 
@@ -109,7 +109,7 @@ export default function Results() {
                             <p>Loading...</p>
                         )}
 
-                        <div className="absolute bottom-5">
+                        <div className="fixed bottom-5 z-50">
                             <Link to="/search">
                                 <button className="text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Search Again</button>
                             </Link>
