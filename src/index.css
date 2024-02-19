@@ -5,5 +5,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 .std-text{
-    @apply text-2xl font-extrabold text-white shadow-lg font-extrabold
+    @apply md:text-2xl text-white shadow-lg font-extrabold text-lg
 }

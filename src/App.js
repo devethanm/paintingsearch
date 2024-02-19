@@ -14,6 +14,8 @@ import Account from './pages/Account';
 // Google Authentication 
 import { withAuthenticator } from '@aws-amplify/ui-react';
 
+
+
 function App() {
   return (
     <div >

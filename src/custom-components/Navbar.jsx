@@ -2,7 +2,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 export default function Navbar() {
   return (
-    <div className="gap-x-5 py-10 px-20 flex w-full ">
+    <div className="gap-x-5 py-10 px-20 flex w-full">
 
         <div id='nav-left' className="flex-1 flex gap-x-5">
             <BellIcon className="max-w-10 min-w-10"></BellIcon>
