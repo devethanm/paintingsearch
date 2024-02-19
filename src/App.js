@@ -24,12 +24,12 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route index element={<Home />} /> 
-                <Route path="/home/" element={<Home />} />
-                <Route path="/search/" element={<Search />} />
-                <Route path="/about/" element={<About />} />
-                <Route path="/about/" element={<Account />} />
-                <Route path="/results/" element={<Results />} />
-                <Route path="/account/" element={<Account />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/about" element={<Account />} />
+                <Route path="/results" element={<Results />} />
+                <Route path="/account" element={<Account />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
