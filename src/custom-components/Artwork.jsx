@@ -19,17 +19,17 @@ export default function Artwork({ image, footer1, footer2}) {
 
 export default function Artwork({ image, footer1, footer2 }) {
     return (
-        <div className="flex flex-col bg-white text-black shadow-lg">
-            <div className="relative overflow-hidden w-full h-64">
+        <div className="flex flex-col bg-black text-white shadow-lg">
+            <div className="relative overflow-hidden w-full h-64 hover:opacity-70">
                 <img
                     src={image}
                     alt={footer1 + footer2}
                     className="absolute p-5 inset-0 w-full h-full object-cover drop-shadow-xl"
                 />
             </div>
-            <div className="p-4">
-                <p className="text-sm text-gray-600">{footer1}</p>
-                <p className="text-sm text-gray-600">{footer2}</p>
+            <div className="p-4 bg-blue-900">
+                <p className="text-sm text-white">{footer1}</p>
+                <p className="text-sm text-white">{footer2}</p>
             </div>
         </div>
     );

@@ -39,6 +39,7 @@ export default function Account() {
     function onHomeClick() { navigate('/home') }
     function onSearchClick() { navigate('/search') }
     function onAboutClick() { navigate('/about') }
+    function onAccountClick() { navigate('/account') }
 
     return(
         <main className="flex min-h-screen flex-col items-center text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black">
@@ -49,17 +50,17 @@ export default function Account() {
                     onHomeClick={onHomeClick}
                     onSearchClick={onSearchClick}
                     onAboutClick={onAboutClick}
+                    onAccountClick={onAccountClick}
+                    onSignOut={handleSignOut}
+                    currentActive={4}
                 />
-                <h2>Signed in as {username}</h2>
 
                 <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
             
                     <div id="main-content-1" className=" m-20 z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
-                        <h1 className="text-center text-white lg:text-7xl md:text-6xl sm:text-4xl text-3xl font-extrabold shadow-xl border-2 border-dashed">🖌️ Painting Search 🎨</h1>
-                        <h2 className='std-text'>An advanced painting search engine</h2>
-                        <Link to="/search">
-                            <button className=" text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Get Started</button>
-                        </Link>
+                        <h1 className="text-center text-white lg:text-7xl md:text-6xl sm:text-4xl text-3xl font-extrabold shadow-xl">Account Info</h1>
+                        <h2 className='std-text'>Here is some info:</h2>
+                        <h2>Signed in as {username}</h2>
                     </div>
 
                 </div>

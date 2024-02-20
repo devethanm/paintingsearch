@@ -7,7 +7,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function NavbarTail({ onHomeClick, onSearchClick, onAboutClick, currentActive }) {
+export default function NavbarTail({ onHomeClick, onSearchClick, onAboutClick, onAccountClick, onSignOut, currentActive }) {
 
   const navigation = [
     { name: 'Home', href: '#', current: currentActive === 0},
@@ -99,6 +99,9 @@ export default function NavbarTail({ onHomeClick, onSearchClick, onAboutClick, c
                           <a
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            onClick={() => {
+                              onAccountClick();
+                            }}
                           >
                             Account
                           </a>
@@ -109,6 +112,9 @@ export default function NavbarTail({ onHomeClick, onSearchClick, onAboutClick, c
                           <a
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            onClick={() => {
+                              onSignOut();
+                            }}
                           >
                             Sign out
                           </a>

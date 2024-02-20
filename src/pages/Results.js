@@ -56,6 +56,7 @@ export default function Results() {
     function onHomeClick() { navigate('/home') }
     function onSearchClick() { navigate('/search') }
     function onAboutClick() { navigate('/about') }
+    function onAccountClick() { navigate('/account') }
 
     // Use effect to retrieve paintings and update the paintings variable!
     useEffect( () => {
@@ -85,9 +86,10 @@ export default function Results() {
                     onHomeClick={onHomeClick}
                     onSearchClick={onSearchClick}
                     onAboutClick={onAboutClick}
+                    onAccountClick={onAccountClick}
+                    onSignOut={handleSignOut}
                     currentActive={4}
                 />
-                <h2>Signed in as {username}</h2>
 
                 <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
             

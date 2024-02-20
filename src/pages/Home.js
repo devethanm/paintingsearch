@@ -39,6 +39,7 @@ export default function Home() {
     function onHomeClick() { navigate('/home') }
     function onSearchClick() { navigate('/search') }
     function onAboutClick() { navigate('/about') }
+    function onAccountClick() { navigate('/account') }
 
     return(
         <main className="flex min-h-screen flex-col items-center text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black">
@@ -49,9 +50,10 @@ export default function Home() {
                     onHomeClick={onHomeClick}
                     onSearchClick={onSearchClick}
                     onAboutClick={onAboutClick}
+                    onAccountClick={onAccountClick}
+                    onSignOut={handleSignOut}
                     currentActive={0}
                 />
-                <h2>Signed in as {username}</h2>
 
                 <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
             
