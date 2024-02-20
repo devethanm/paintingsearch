@@ -85,7 +85,7 @@ export default function Results() {
                     onHomeClick={onHomeClick}
                     onSearchClick={onSearchClick}
                     onAboutClick={onAboutClick}
-                    currentActive={1}
+                    currentActive={4}
                 />
                 <h2>Signed in as {username}</h2>
 
@@ -99,7 +99,7 @@ export default function Results() {
                             // Render paintings if data is available
                             paintings.results.map((e, index) => (
                                 <Artwork
-                                    key={index} // Use index as key, but better to have a unique identifier
+                                    key={generateUniqueKey(e.value)}
                                     image={e.image}
                                     footer1={e.value}
                                     footer2={e.label}
