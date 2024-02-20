@@ -49,6 +49,7 @@ export default function Home() {
                     onHomeClick={onHomeClick}
                     onSearchClick={onSearchClick}
                     onAboutClick={onAboutClick}
+                    currentActive={0}
                 />
                 <h2>Signed in as {username}</h2>
 

@@ -2,19 +2,19 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const navigation = [
-
-
-  { name: 'Home', href: '#', current: true },
-  { name: 'Search', href: '#', current: false },
-  { name: 'About', href: '#', current: false },
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function NavbarTail({ onHomeClick, onSearchClick, onAboutClick }) {
+export default function NavbarTail({ onHomeClick, onSearchClick, onAboutClick, currentActive }) {
+
+  const navigation = [
+    { name: 'Home', href: '#', current: currentActive === 0},
+    { name: 'Search', href: '#', current: currentActive === 1 },
+    { name: 'About', href: '#', current: currentActive === 2 },
+  ]
+  
   return (
     <Disclosure as="nav" className="flex-1 min-w-full hidden sm:block">
       {({ open }) => (
@@ -59,7 +59,7 @@ export default function NavbarTail({ onHomeClick, onSearchClick, onAboutClick })
                         key={item.name}
                         className={classNames(
                           item.current ? ' bg-sitemain text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          'rounded-md px-3 py-2 text-sm font-medium select-none'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -127,7 +127,6 @@ export default function NavbarTail({ onHomeClick, onSearchClick, onAboutClick })
                 <Disclosure.Button
                   key={item.name}
                   as="a"
-                  href={item.href}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'

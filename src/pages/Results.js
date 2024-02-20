@@ -85,6 +85,7 @@ export default function Results() {
                     onHomeClick={onHomeClick}
                     onSearchClick={onSearchClick}
                     onAboutClick={onAboutClick}
+                    currentActive={1}
                 />
                 <h2>Signed in as {username}</h2>
 
