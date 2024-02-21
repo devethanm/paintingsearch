@@ -99,7 +99,7 @@ export default function Results() {
                         <h2 className='std-text'>Search Results:</h2>
 
                         <div
-                            className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-4 2xl:grid-cols-4 2xl:gap-4"
+                            className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-4 2xl:grid-cols-4"
                         >
                             {paintings && paintings.results ? (
                                 // Render paintings if data is available
