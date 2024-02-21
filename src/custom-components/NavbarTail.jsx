@@ -39,6 +39,9 @@ export default function NavbarTail({ onHomeClick, onSearchClick, onAboutClick, o
                     className="h-8 w-auto"
                     src="https://i.ibb.co/6YJnzm6/logoipsum.png"
                     alt="Painting Search"
+                    onClick={() => {
+                      onHomeClick();
+                    }}
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
