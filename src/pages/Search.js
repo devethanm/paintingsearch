@@ -70,12 +70,12 @@ export default function Search() {
     }, [searchTerm, throttledGetMatches]);
 
     useEffect(() => {
-        function pickSearchTarget() {
+        function pickSearchTarget(index) {
             try {
                 if(searchMatches && searchMatches.results) {
                     const target = {
-                        id: searchMatches.results[0].id,
-                        value: searchMatches.results[0].value,
+                        id: searchMatches.results[index].id,
+                        value: searchMatches.results[index].value,
                     }
                     setSearchTarget(target);
                 }
@@ -86,7 +86,7 @@ export default function Search() {
             }
         }
 
-        pickSearchTarget();
+        pickSearchTarget(0);
     }, [searchMatches]);
 
     const handleInputChange = (event) => {
@@ -112,10 +112,27 @@ export default function Search() {
 
     const handleSearch = () => {
         if( searchMatches && searchMatches.results && searchTerm.trim() !== "" ) {
-            navigate(`/results?searchTerm=${encodeURIComponent(searchTarget.id)}&termID=${encodeURIComponent(searchTarget.value)}`);
+            navigate(`/results?searchTerm=${encodeURIComponent(searchTarget.value)}&searchID=${encodeURIComponent(searchTarget.id)}`);
         }
         else {
             alert("You must enter a search term");
+        }
+    }
+
+    const onResultClick = (index) => {
+        try {
+            if(searchMatches && searchMatches.results) {
+                const target = {
+                    id: searchMatches.results[index].id,
+                    value: searchMatches.results[index].value,
+                }
+                setSearchTarget(target);
+                setSearchTerm(target.value);
+            }
+        }
+        catch (error) {
+            console.log('An error has occurred when getting user data')
+            console.log(error)
         }
     }
 
@@ -161,6 +178,7 @@ export default function Search() {
                                             key={generateUniqueKey(index + e.value)}
                                             value={e.value}
                                             desc={e.desc}
+                                            onResultClick={() => onResultClick(index)}
                                         />
                                     ))
                                 ) : (

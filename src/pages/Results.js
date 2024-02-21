@@ -27,6 +27,7 @@ export default function Results() {
 
     const searchParams = new URLSearchParams(location.search);
     const searchTerm = searchParams.get('searchTerm');
+    const searchID = searchParams.get('searchID');
 
     // Create a state to store the user's username
     const [username, setUsername] = useState('');
@@ -62,7 +63,7 @@ export default function Results() {
     useEffect( () => {
         async function fetchData() {
             try {
-                const data = await getPaintings(searchTerm);
+                const data = await getPaintings(searchID);
                 const parsedData = parsePaintings(data);
                 setPaintings(parsedData);
             } catch (error) {
