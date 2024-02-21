@@ -98,20 +98,24 @@ export default function Results() {
                         <h2 className='std-text'>{`" ${searchTerm} "`}</h2>
                         <h2 className='std-text'>Search Results:</h2>
 
-                        {paintings && paintings.results ? (
-                            // Render paintings if data is available
-                            paintings.results.map((e, index) => (
-                                <Artwork
-                                    key={generateUniqueKey(e.value)}
-                                    image={e.image}
-                                    footer1={e.value}
-                                    footer2={e.label}
-                                />
-                            ))
-                        ) : (
-                            // Render loading state or placeholder if data is not available yet
-                            <p>Loading...</p>
-                        )}
+                        <div
+                            className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-4 2xl:grid-cols-4 2xl:gap-4"
+                        >
+                            {paintings && paintings.results ? (
+                                // Render paintings if data is available
+                                paintings.results.map((e, index) => (
+                                    <Artwork
+                                        key={generateUniqueKey(e.value)}
+                                        image={e.image}
+                                        footer1={e.value}
+                                        footer2={e.label}
+                                    />
+                                ))
+                            ) : (
+                                // Render loading state or placeholder if data is not available yet
+                                <p>Loading...</p>
+                            )}
+                        </div>
 
                         <div className="fixed bottom-5 z-50">
                             <Link to="/search">

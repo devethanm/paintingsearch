@@ -19,8 +19,8 @@ export default function Artwork({ image, footer1, footer2}) {
 
 export default function Artwork({ image, footer1, footer2 }) {
     return (
-        <div className="flex flex-col bg-black text-white shadow-lg">
-            <div className="relative overflow-hidden w-full h-64 hover:opacity-80">
+        <div className="flex flex-col bg-black text-white shadow-lg max-w-fit sm:w-60 w-72">
+            <div className="relative overflow-hidden sm:w-full h-64 hover:opacity-80">
                 <img
                     src={image}
                     alt={footer1 + footer2}
