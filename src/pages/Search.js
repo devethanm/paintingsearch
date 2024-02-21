@@ -46,7 +46,7 @@ export default function Search() {
     // Create a state to store matched search terms
     const [searchMatches, setSearchMatches] = useState([]);
 
-    // Throttled API call function
+    // Throttled api call function
     const throttledGetMatches = useCallback(throttle(async (term) => {
         try {
             const matches = await getMatchingSearches(term);
@@ -55,11 +55,15 @@ export default function Search() {
         } catch (error) {
             console.log('An error has occurred when getting user data');
         }
-    }, 500), []); // Empty dependency array to ensure this is setup once per component mount
+        // 500 millisecond delay to throttle api calls
+    }, 500), []); // empty dependency array to ensure this is setup once per component mount 
 
     useEffect(() => {
         if (searchTerm && searchTerm.trim() !== "") {
             throttledGetMatches(searchTerm);
+        }
+        else if (searchTerm && searchTerm.trim() == ""){
+            // make it so that if the user deletes what they're typing it calls all  search results
         }
     }, [searchTerm, throttledGetMatches]);
 
@@ -86,6 +90,15 @@ export default function Search() {
     const generateUniqueKey = (str) => {
         return SHA256(str).toString();
     };
+
+    const handleSearch = () => {
+        if( searchMatches && searchMatches.results && searchTerm.trim() !== "" ) {
+            navigate(`/results?searchTerm=${encodeURIComponent(searchTerm)}`);
+        }
+        else {
+            alert("You must enter a search term");
+        }
+    }
 
     return(
         <main className="flex min-h-screen flex-col items-center text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black">
@@ -133,15 +146,15 @@ export default function Search() {
                                     ))
                                 ) : (
                                     // Render loading state or placeholder if data is not available yet
-                                    <p>Loading...</p>
+                                    <p></p>
                                 )}
+
                             </div>
 
                         </div>
 
-                        <Link to={`/results?searchTerm=${encodeURIComponent(searchTerm)}`}>
-                            <button className=" text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Search!</button>
-                        </Link>
+                        <button onClick={handleSearch} className=" text-lg font-bold bg-accentmain px-10 rounded-lg py-2 border-white border-2 shadow-xl">Search!</button>
+
                     </div>
 
                 </div>

@@ -28,10 +28,12 @@ export function parseMatchingSearches(data) {
   bindings.forEach((element) => {
     const value = element['label'];
     const desc = element['description']
+    const id = element['id']
 
     results.push({
       value: value,
       desc: desc,
+      id: id,
     });
   });
   
@@ -60,12 +62,11 @@ export async function getPaintings(targetEntity) {
     const res = await fetch(url);
   
     return { 
-      results: await res.json() 
+      paintings: await res.json() 
     };
   }
 
   export function parsePaintings(data) {
-
     const bindings = data['paintings']['results']['bindings'];
     
     let results = [];
