@@ -22,7 +22,7 @@ export async function getMatchingSearches(searchTerm) {
 export function parseMatchingSearches(data) {
   const bindings = data['results']['search'];
 
-  console.log(bindings);
+  //console.log(bindings);
   
   let results = [];
   bindings.forEach((element) => {

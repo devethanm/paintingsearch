@@ -9,7 +9,7 @@ import { throttle } from 'lodash';
 import { SHA256 } from 'crypto-js'
 
 // React Router
-import { Link, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 // Wikidata api functions
 import { getMatchingSearches } from '../lib/wikidata';
@@ -26,6 +26,8 @@ export default function Search() {
 
     // Create a state to store the user's username
     const [username, setUsername] = useState('');
+
+    const [searchTarget, setSearchTarget] = useState('');
 
     // useEffect to call getUserData when the component mounts
     useEffect(() => {
@@ -62,16 +64,33 @@ export default function Search() {
         if (searchTerm && searchTerm.trim() !== "") {
             throttledGetMatches(searchTerm);
         }
-        else if (searchTerm && searchTerm.trim() == ""){
+        else if (searchTerm && searchTerm.trim() === ""){
             // make it so that if the user deletes what they're typing it calls all  search results
         }
     }, [searchTerm, throttledGetMatches]);
 
+    useEffect(() => {
+        function pickSearchTarget() {
+            try {
+                if(searchMatches && searchMatches.results) {
+                    const target = {
+                        id: searchMatches.results[0].id,
+                        value: searchMatches.results[0].value,
+                    }
+                    setSearchTarget(target);
+                }
+            }
+            catch (error) {
+                console.log('An error has occurred when getting user data')
+                console.log(error)
+            }
+        }
+
+        pickSearchTarget();
+    }, [searchMatches]);
+
     const handleInputChange = (event) => {
-
-        console.log(event.target.value);
         setSearchTerm(event.target.value);
-
     };
 
     async function handleSignOut() {
@@ -93,7 +112,7 @@ export default function Search() {
 
     const handleSearch = () => {
         if( searchMatches && searchMatches.results && searchTerm.trim() !== "" ) {
-            navigate(`/results?searchTerm=${encodeURIComponent(searchTerm)}`);
+            navigate(`/results?searchTerm=${encodeURIComponent(searchTarget.id)}&termID=${encodeURIComponent(searchTarget.value)}`);
         }
         else {
             alert("You must enter a search term");
@@ -117,8 +136,8 @@ export default function Search() {
                 <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
             
                     <div id="main-content-1" className=" m-20 z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
-                        <h2 className='std-text'>Enter a search term and click search!</h2>
-
+                        <h2 className='std-text'>Enter a search term, select the closest match</h2>
+                        <h2 className='std-text'>Then click search!</h2>
                         <div>
                             <div id="searchFormBox" className="relative mt-2 rounded-md shadow-sm max-w-fit">
                                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
