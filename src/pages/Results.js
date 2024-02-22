@@ -79,7 +79,7 @@ export default function Results() {
     };
 
     return(
-        <main className="flex min-h-screen flex-col items-center text-white bg-slate-900">
+        <main className="flex min-h-screen flex-col items-center text-white bg-slate-900 overflow-x-hidden">
 
             <div className="flex flex-col items-center min-w-full xl:px-60">
 
@@ -99,7 +99,7 @@ export default function Results() {
                         <h2 className='std-text'>Search Results:</h2>
 
                         <div
-                            className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-4 2xl:grid-cols-4"
+                            className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-4 2xl:grid-cols-4 overflow-x-hidden"
                         >
 
                         
