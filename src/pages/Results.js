@@ -101,7 +101,12 @@ export default function Results() {
                         <div
                             className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-4 2xl:grid-cols-4"
                         >
-                            {paintings && paintings.results ? (
+
+                        
+                        {
+                            /* Dispaly results of search! */
+
+                            paintings && paintings.results && paintings.results.length > 0 ? (
                                 // Render paintings if data is available
                                 paintings.results.map((e, index) => (
                                     <Artwork
@@ -111,10 +116,17 @@ export default function Results() {
                                         footer2={e.label}
                                     />
                                 ))
+                            ) : paintings && paintings.results && paintings.results.length === 0 ? (
+                                // Render "No results" if data is available but empty
+                                <h1 className='std-text'>No Results.</h1>
                             ) : (
                                 // Render loading state or placeholder if data is not available yet
-                                <p>Loading...</p>
-                            )}
+                                <h1 className='std-text'>Loading...</h1>
+                            )
+                        }
+
+
+
                         </div>
 
                         <div className="fixed bottom-5 z-50">
