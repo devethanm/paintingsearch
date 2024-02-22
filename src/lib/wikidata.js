@@ -9,7 +9,7 @@ export async function getMatchingSearches(searchTerm) {
     limit: "5",
     language: "en",
     formatversion: "2",
-    origin: "*"
+    origin: "*",
   };
   for (const k in urlquery) {
     url.searchParams.append(k, urlquery[k]);
@@ -48,12 +48,16 @@ export async function getPaintings(targetEntity) {
     const url = new URL("https://query.wikidata.org/bigdata/namespace/wdq/sparql");
     const urlquery= {
       format: "json",
+      //"User-Agent": "PaintingSearch/1.0 (https://github.com/devethanm/paintingsearch; ethanmdev@gmail.com) ReactJS/18.2.0",
+
       // ( cat test query ) query: "SELECT ?item ?itemLabel WHERE { ?item wdt:P31 wd:Q146. } LIMIT 10",
       // TODO: if their object has children such as a query for paintings depicting
       // "woodwind instruments" run two queries one like the query below and one like 
       // paintings depicting woodwind instruments and compare the result sets
       // and display the bigger result set
-      query: `SELECT ?item ?itemLabel ?object ?objectLabel ?image WHERE {?item wdt:P31/wdt:P279* wd:Q3305213 . ?item wdt:P180 wd:${targetEntity} . ?item wdt:P18 ?image . SERVICE wikibase:label { bd:serviceParam wikibase:language "en" } } LIMIT 10`,
+      language: "en",
+      origin: "*",
+      query: `SELECT ?item ?itemLabel ?object ?objectLabel ?image WHERE {?item wdt:P31 wd:Q3305213 . ?item wdt:P180 wd:${targetEntity} . ?item wdt:P18 ?image . SERVICE wikibase:label { bd:serviceParam wikibase:language "en" } } LIMIT 10`,
     };
 
     for (const k in urlquery) {
