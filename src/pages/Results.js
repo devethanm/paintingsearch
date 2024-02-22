@@ -79,7 +79,7 @@ export default function Results() {
     };
 
     return(
-        <main className="flex min-h-screen flex-col relative items-center text-white bg-bg2 bg-center bg-fixed bg-no-repeat bg-black">
+        <main className="flex min-h-screen flex-col items-center text-white bg-slate-900">
 
             <div className="flex flex-col items-center min-w-full xl:px-60">
 
