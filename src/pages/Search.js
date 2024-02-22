@@ -76,6 +76,7 @@ export default function Search() {
                     const target = {
                         id: searchMatches.results[index].id,
                         value: searchMatches.results[index].value,
+                        desc: searchMatches.results[index].desc,
                     }
                     setSearchTarget(target);
                 }
@@ -125,7 +126,9 @@ export default function Search() {
                 const target = {
                     id: searchMatches.results[index].id,
                     value: searchMatches.results[index].value,
+                    desc: searchMatches.results[index].desc,
                 }
+
                 setSearchTarget(target);
                 setSearchTerm(target.value);
             }
@@ -153,8 +156,9 @@ export default function Search() {
                 <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
             
                     <div id="main-content-1" className=" m-20 z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
-                        <h2 className='std-text'>Enter a search term, select the closest match</h2>
-                        <h2 className='std-text'>Then click search!</h2>
+                        <h2 className='std-text'>Enter and select a term, then click search!</h2>
+                        <h2 id="searchTermDisplay" className='std-text'>Search Term: {searchTerm}</h2>
+                        <h3 id="searchDescDisplay" className='std-text'>{searchTarget.desc}</h3>
                         <div>
                             <div id="searchFormBox" className="relative mt-2 rounded-md shadow-sm max-w-fit">
                                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
@@ -178,6 +182,7 @@ export default function Search() {
                                             key={generateUniqueKey(index + e.value)}
                                             value={e.value}
                                             desc={e.desc}
+                                            active={false}
                                             onResultClick={() => onResultClick(index)}
                                         />
                                     ))
