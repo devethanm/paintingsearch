@@ -78,11 +78,18 @@ export async function getPaintings(targetEntity) {
       const image = element['image']['value'];
       const value = element['item']['value'];
       const label = element['itemLabel']['value'];
-      results.push({
-        image: image,
-        value: value,
-        label: label,
-      });
+
+      if( image.endsWith('.tif')) {
+        return;
+      }
+      else {
+        results.push({
+          image: image,
+          value: value,
+          label: label,
+        });
+      }
+
     });
     
     return {
