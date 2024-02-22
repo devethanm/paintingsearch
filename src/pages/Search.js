@@ -130,7 +130,7 @@ export default function Search() {
                 }
 
                 setSearchTarget(target);
-                setSearchTerm(target.value);
+                //setSearchTerm(target.value);
             }
         }
         catch (error) {
@@ -140,7 +140,7 @@ export default function Search() {
     }
 
     return(
-        <main className="flex min-h-screen flex-col items-center text-white bg-slate-900">
+        <main className="flex min-h-screen flex-col items-center text-white bg-slate-900 overflow-x-hidden">
 
             <div className="flex flex-col items-center min-w-full xl:px-60">
 
@@ -155,10 +155,10 @@ export default function Search() {
 
                 <div className="z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
             
-                    <div id="main-content-1" className=" m-20 z-10 max-w-5xl w-full flex items-center justify-between lg:flex flex-col gap-y-10 font-head">
+                    <div id="main-content-1" className=" m-20 z-10 max-w-5xl flex text-center items-center justify-between lg:flex flex-col gap-y-10 font-head">
                         <h2 className='std-text'>Enter and select a term, then click search!</h2>
-                        <h2 id="searchTermDisplay" className='std-text'>Search Term: {searchTerm}</h2>
-                        <h3 id="searchDescDisplay" className='std-text'>{searchTarget.desc}</h3>
+                        <h2 id="searchTermDisplay" className='std-text text-wrap text-balance'>Search Term: {searchTerm}</h2>
+                        <h3 id="searchDescDisplay" className='std-text text-wrap text-balance'>{searchTarget.desc}</h3>
                         <div>
                             <div id="searchFormBox" className="relative mt-2 rounded-md shadow-sm max-w-fit">
                                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
@@ -167,29 +167,32 @@ export default function Search() {
                                         type="text"
                                         name="searchterm"
                                         id="searchBox"
-                                        className="block w-full rounded-md border-0 py-1.5 pl-5 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                        className="block w-80 rounded-md border-0 py-1.5 pl-5 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         placeholder="Enter your Search Term"
                                         value={searchTerm}
                                         onChange={handleInputChange}
                                     />
-                                <div className="absolute inset-y-0 right-0 flex items-center">
+                                <div className="flex flex-col">
+
+                                    {searchMatches && searchMatches.results? (
+                                        searchMatches.results.map((e, index) => (
+                                            // change this to a custom searchResult component or something like that
+                                            <SearchResult
+                                                key={generateUniqueKey(index + e.value)}
+                                                value={e.value}
+                                                desc={e.desc}
+                                                active={false}
+                                                onResultClick={() => onResultClick(index)}
+                                            />
+                                        ))
+                                    ) : (
+                                        // Render loading state or placeholder if data is not available yet
+                                        <p></p>
+                                    )}
+
                                 </div>
 
-                                {searchMatches && searchMatches.results? (
-                                    searchMatches.results.map((e, index) => (
-                                        // change this to a custom searchResult component or something like that
-                                        <SearchResult
-                                            key={generateUniqueKey(index + e.value)}
-                                            value={e.value}
-                                            desc={e.desc}
-                                            active={false}
-                                            onResultClick={() => onResultClick(index)}
-                                        />
-                                    ))
-                                ) : (
-                                    // Render loading state or placeholder if data is not available yet
-                                    <p></p>
-                                )}
+
 
                             </div>
 
