@@ -24,6 +24,8 @@ export default function Search() {
     // Navigate variable used to switch routes
     const navigate = useNavigate()
 
+    const [resultClick, setResultClick] = useState(false);
+
     // Create a state to store the user's username
     const [username, setUsername] = useState('');
 
@@ -61,11 +63,16 @@ export default function Search() {
     }, 500), []); // empty dependency array to ensure this is setup once per component mount 
 
     useEffect(() => {
-        if (searchTerm && searchTerm.trim() !== "") {
+        if (searchTerm && searchTerm.trim() !== "" && !resultClick) {
             throttledGetMatches(searchTerm);
+            setResultClick(false);
         }
         else if (searchTerm && searchTerm.trim() === ""){
             // make it so that if the user deletes what they're typing it calls all  search results
+            setResultClick(false);
+        }
+        else {
+            setResultClick(false);
         }
     }, [searchTerm, throttledGetMatches]);
 
@@ -130,7 +137,8 @@ export default function Search() {
                 }
 
                 setSearchTarget(target);
-                //setSearchTerm(target.value);
+                setSearchTerm(target.value);
+                setResultClick(true)
             }
         }
         catch (error) {
