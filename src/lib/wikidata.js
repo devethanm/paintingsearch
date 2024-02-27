@@ -79,12 +79,14 @@ export async function getPaintings(targetEntity) {
       const value = element['item']['value'];
       const label = element['itemLabel']['value'];
 
+      image.replace(/http:\/\//g, "https://")
+
       if( image.endsWith('.tif') || image.endsWith('.tiff') ) {
         return;
       }
       else {
         results.push({
-          image: image,
+          image: image.replace(/http:\/\//g, "https://"),
           value: value,
           label: label,
         });
