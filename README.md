@@ -2,8 +2,8 @@
 ## Created using AWS and ReactJS
 
 <div>
-    <img src="./assets/aws.png" alt="Example Image" width="100" style="padding: 20px;"/>
-    <img src="./assets/react.png" alt="Example Image" width="100" style="padding: 20px;"/>
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffuturumresearch.com%2Fwp-content%2Fuploads%2F2020%2F01%2Faws-logo.png&f=1&nofb=1&ipt=81f3552f1d9750a1c1f6743501e495e3e016fc6dc2138187750af548400c02c4&ipo=images" alt="AWS logo" width="100" style="padding: 20px;"/>
+    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Flogos-download.com%2Fwp-content%2Fuploads%2F2016%2F09%2FReact_logo_logotype_emblem.png&f=1&nofb=1&ipt=58b9012fd6d9db9b45a6ef6fb687d4093c3f89afe924f36e5b61dd6ee2cf5367&ipo=images" alt="React logo" width="100" style="padding: 20px;"/>
 </div>
 
 
