@@ -1,15 +1,20 @@
 # Painting Search Application 
-## Created using AWS and ReactJS
+### Created using AWS and ReactJS
+#### Ethan Maestas
+#### CSC 4026 Secure Cloud Programming
+#### Winter/Spring 2024
 
 <div>
     <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffuturumresearch.com%2Fwp-content%2Fuploads%2F2020%2F01%2Faws-logo.png&f=1&nofb=1&ipt=81f3552f1d9750a1c1f6743501e495e3e016fc6dc2138187750af548400c02c4&ipo=images" alt="AWS logo" width="100" style="padding: 20px;"/>
     <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Flogos-download.com%2Fwp-content%2Fuploads%2F2016%2F09%2FReact_logo_logotype_emblem.png&f=1&nofb=1&ipt=58b9012fd6d9db9b45a6ef6fb687d4093c3f89afe924f36e5b61dd6ee2cf5367&ipo=images" alt="React logo" width="100" style="padding: 20px;"/>
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbranditechture.agency%2Fbrand-logos%2Fwp-content%2Fuploads%2Fwpdm-cache%2FTailwind-CSS1-900x0.png&f=1&nofb=1&ipt=2af1fe9042eda3d25abe831b29eed74a2aed9fc8aea75a371a0882a7ac12e771&ipo=images" alt="Tailwind logo" width="100" style="padding: 20px;"/>
+    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fseeklogo.com%2Fimages%2FA%2Faws-amplify-logo-D68DDB5AB1-seeklogo.com.png&f=1&nofb=1&ipt=5acf4bc88302186f8235552a0c720643fcadf347da4f6f6562be3eb737d6f9a2&ipo=images" alt="AWS Amplify logo" width="100" style="padding: 20px;"/>
 </div>
 
 
-This project was bootstrapped with [**Create React App**](https://github.com/facebook/create-react-app).
+### This project was bootstrapped with [**Create React App**](https://github.com/facebook/create-react-app).
 
-This project utilizes **AWS** services for its backend functionality and security.
+### This project utilizes **AWS** services for its backend functionality and security.
 
 ## Sections
 - [Project Components](#project-components)
@@ -46,8 +51,11 @@ Here are the project components and technologies this application uses:
 - AWS Services
     - [AWS Amplify](https://aws.amazon.com/amplify/) - Backend design and management
     - [AWS Cognito](https://aws.amazon.com/cognito/) - User authentication, account information, and identify. Integrates with Google for third party sign in. 
+- Painting Data API
+    - [Wikidata API](https://www.wikidata.org/wiki/Wikidata:REST_API) - All painting data is retrieved from the Wikidata API.
 ### Misc
 - Git/Github
+    - [Logoipsum](https://logoipsum.com/) - Placeholder logo provider.
 
 ## Setup and Build
 
